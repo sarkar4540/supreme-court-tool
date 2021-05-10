@@ -115,22 +115,22 @@ func main() {
 		case 4:
 			c.Each(func(i2 int, s2 *goquery.Selection) {
 				if i2 == 0 {
-					delimited = delimited + "\n" + s2.Text()
+					delimited = delimited + "\n" + strings.TrimSpace(s2.Text())
 				}
 				if i2 == 1 && firstpass {
-					columnnames = columnnames + delimiter + s2.Text()
+					columnnames = columnnames + delimiter + strings.TrimSpace(s2.Text())
 				}
 				if i2 == 2 {
-					delimited = delimited + delimiter + s2.Text()
+					delimited = delimited + delimiter + strings.TrimSpace(s2.Text())
 				}
 			})
 		case 3, 2:
 			c.Each(func(i2 int, s2 *goquery.Selection) {
 				if i2 == 0 && firstpass {
-					columnnames = columnnames + delimiter + s2.Text()
+					columnnames = columnnames + delimiter + strings.TrimSpace(s2.Text())
 				}
 				if i2 == 1 {
-					delimited = delimited + delimiter + s2.Text()
+					delimited = delimited + delimiter + strings.TrimSpace(s2.Text())
 				}
 			})
 		case 1:
